@@ -5,6 +5,7 @@ provider "registry.terraform.io/sacloud/sakuracloud" {
   version     = "2.24.1"
   constraints = "2.24.1"
   hashes = [
+    "h1:0yxJVP2nK3+dJ1rAEVm3upTXoxnC1XQZi62pq/kbyWM=",
     "h1:Z/LDoj8kM4qqgK69MG9DYZNJ+Jv/0rsZAAkDtwQ21aU=",
     "zh:1163ad6c7815168f1f8939ff9557ce15825e2d7d176cabc592819d25cff30ffa",
     "zh:25165093c9d0d1b8d396822fcce53af0ca0f5a9f90d66b92a38e7ba5c6f37fb2",

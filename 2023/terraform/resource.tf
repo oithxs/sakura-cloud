@@ -30,6 +30,6 @@ resource "sakuracloud_server" "server" {
 
   disk_edit_parameter {
     disable_pw_auth = true
-    ssh_keys        = [file(var.local_ssh_public_key)]
+    ssh_keys        = [local.local_ssh_public_key]
   }
 }

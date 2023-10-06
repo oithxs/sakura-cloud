@@ -8,6 +8,7 @@
 - [Ansible](https://www.ansible.com/)
 - [GitHub CLI](https://cli.github.com/)
 - [direnv](https://direnv.net/docs/installation.html)
+- make
 
 ## Tips
 

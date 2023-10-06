@@ -1,0 +1,9 @@
+export SAKURACLOUD_ACCESS_TOKEN=""
+export SAKURACLOUD_ACCESS_TOKEN_SECRET=""
+export SAKURACLOUD_ZONE="tk1v"
+
+# tk1v -> Sandbox
+# tk1a -> 東京第1ゾーン
+# tk1b -> 東京第2ゾーン
+# is1a -> 石狩第1ゾーン
+# is1b -> 石狩第2ゾーン

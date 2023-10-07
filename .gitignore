@@ -1,4 +1,5 @@
 .envrc
+hosts.yaml
 
 # Local .terraform directories
 **/.terraform/*

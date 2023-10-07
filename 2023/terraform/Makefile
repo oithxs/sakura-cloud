@@ -1,4 +1,4 @@
-.PHONY: all init plan apply
+.PHONY: all init plan apply destroy
 
 all: init plan apply
 

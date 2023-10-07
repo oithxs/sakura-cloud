@@ -29,6 +29,7 @@ resource "sakuracloud_server" "server" {
   }
 
   disk_edit_parameter {
+    hostname        = "hxs-shared-server-${count.index}"
     disable_pw_auth = true
     ssh_keys        = [local.local_ssh_public_key]
   }

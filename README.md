@@ -9,6 +9,7 @@
 - [GitHub CLI](https://cli.github.com/)
 - [direnv](https://direnv.net/docs/installation.html)
 - make
+- jq
 
 ## Tips
 

@@ -1,5 +1,6 @@
 .envrc
 hosts.yaml
+authorized_keys
 
 # Local .terraform directories
 **/.terraform/*

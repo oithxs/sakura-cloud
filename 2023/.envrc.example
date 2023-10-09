@@ -1,7 +1,8 @@
 export GITHUB_ORG="oithxs"
 export TEAM_SLUG=""
 
-export TF_VAR_SERVER_PASSWORD=""
+export TF_VAR_discord_webhook_url=""
+export TF_VAR_server_password=""
 
 export SAKURACLOUD_ACCESS_TOKEN=""
 export SAKURACLOUD_ACCESS_TOKEN_SECRET=""

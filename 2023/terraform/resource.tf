@@ -35,3 +35,23 @@ resource "sakuracloud_server" "server" {
     ssh_keys        = [local.local_ssh_public_key]
   }
 }
+
+resource "sakuracloud_simple_monitor" "monitor" {
+  count = var.server_num
+
+  delay_loop = 60
+  timeout    = 10
+
+  max_check_attempts = 3
+  target             = element(sakuracloud_server.server.*.ip_address, count.index)
+
+  health_check {
+    protocol = "ping"
+  }
+
+  description = element(sakuracloud_server.server.*.name, count.index)
+
+  notify_email_enabled = false
+  notify_slack_enabled = true
+  notify_slack_webhook = "${var.discord_webhook_url}/slack"
+}

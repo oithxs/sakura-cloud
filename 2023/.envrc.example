@@ -1,3 +1,8 @@
+export GITHUB_ORG="oithxs"
+export TEAM_SLUG=""
+
+export TF_VAR_SERVER_PASSWORD=""
+
 export SAKURACLOUD_ACCESS_TOKEN=""
 export SAKURACLOUD_ACCESS_TOKEN_SECRET=""
 export SAKURACLOUD_ZONE="tk1v"

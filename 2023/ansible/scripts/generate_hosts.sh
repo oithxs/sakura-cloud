@@ -20,5 +20,6 @@ EOF
 for i in "${!ip_addresses[@]}"; do
   echo "        ${server_names[i]}:" >> hosts.yaml
   echo "          ansible_host: ${ip_addresses[i]}" >> hosts.yaml
+  echo "          ansible_become_password: $TF_VAR_server_password" >> hosts.yaml
   echo "          ansible_ssh_private_key_file: ~/.ssh/id_ed25519" >> hosts.yaml
 done

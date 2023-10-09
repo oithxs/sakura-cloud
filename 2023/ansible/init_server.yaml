@@ -1,9 +1,59 @@
 - name: init server
   hosts: all
   remote_user: ubuntu
-  become: yes
+  become: true
   tasks:
     - name: create user
-    #
+      ansible.builtin.user:
+        state: present
+        name: hxs
+        groups: sudo
+        password: "{{ lookup('env', 'TF_VAR_server_password') | password_hash('sha512') }}"
+        shell: /bin/bash
+        create_home: true
+
+    - name: sudo no-password for hxs
+      ansible.builtin.copy:
+        content: "hxs ALL=(ALL) NOPASSWD: ALL"
+        dest: /etc/sudoers.d/hxs
+        owner: root
+        group: root
+        mode: "440"
+
+    - name: disable bash history
+      ansible.builtin.lineinfile:
+        dest: /home/hxs/.bashrc
+        regexp: ^HISTSIZE=
+        line: HISTSIZE=0
+
+    - name: Remove existing history file
+      ansible.builtin.file:
+        path: "/home/hxs/.bash_history"
+        state: absent
+
+    - name: create .ssh directory
+      ansible.builtin.file:
+        path: /home/hxs/.ssh/
+        state: directory
+        owner: hxs
+        group: hxs
+        mode: "700"
+
     - name: add ssh public key
-    #
+      ansible.builtin.copy:
+        src: ./authorized_keys
+        dest: /home/hxs/.ssh/authorized_keys
+        owner: hxs
+        group: hxs
+        mode: "600"
+
+    - name: fail2ban service setting
+      ansible.builtin.systemd:
+        name: fail2ban
+        enabled: true
+        state: started
+
+    - name: apt update and upgrade
+      ansible.builtin.apt:
+        update_cache: true
+        upgrade: full

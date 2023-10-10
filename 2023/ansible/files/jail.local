@@ -1,0 +1,16 @@
+[DEFAULT]
+bantime  = 1d
+findtime  = 1d
+maxretry = 3
+
+[recidive]
+enabled  = true
+bantime  = -1
+findtime = 1w
+maxretry = 3
+
+[sshd]
+enabled = true
+bantime  = 1d
+findtime  = 1d
+maxretry = 3

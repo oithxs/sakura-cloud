@@ -47,11 +47,30 @@
         group: hxs
         mode: "600"
 
+    - name: fale2ban jail setting
+      ansible.builtin.copy:
+        src: ./files/jail.local
+        dest: /etc/fail2ban/jail.local
+        owner: root
+        group: root
+        mode: "644"
+
+    - name: fale2ban filter setting
+      ansible.builtin.copy:
+        src: ./files/iptables-common.local
+        dest: /etc/fail2ban/filter.d/iptables-common.local
+        owner: root
+        group: root
+        mode: "644"
+
     - name: fail2ban service setting
       ansible.builtin.systemd:
         name: fail2ban
         enabled: true
         state: started
+
+    - name: fail2ban reload
+      ansible.builtin.command: fail2ban-client reload --restart
 
     - name: apt update and upgrade
       ansible.builtin.apt:

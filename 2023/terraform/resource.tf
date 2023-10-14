@@ -1,3 +1,13 @@
+# Cloudflare
+
+resource "cloudflare_r2_bucket" "bucket" {
+  account_id = var.cloudflare_account_id
+  name       = var.cloudflare_r2_bucket_name
+  location   = "apac"
+}
+
+# SakuraCloud
+
 resource "sakuracloud_switch" "switch" {
   name = "hxs-shared-switch"
 }
